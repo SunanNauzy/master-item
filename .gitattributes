@@ -2,8 +2,8 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
-* linguist-language=PHP
-* linguist-language=Laravel
+ linguist-language=PHP
+ linguist-language=Laravel
 
 
 
