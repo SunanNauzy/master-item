@@ -165,7 +165,7 @@ var total2 = [];
 var unit = [];
 var total3 = [];
 var jenis = [];
-
+var total_jenis = [];
 var result =[];
 
 
@@ -187,6 +187,7 @@ var result =[];
 @endforeach
 @foreach ($totaljenis as $jenis)
     jenis.push('{{$jenis}}');
+    total_jenis.push('{{$jenis}}');
 @endforeach
 
 
@@ -599,11 +600,34 @@ myLineChart.options.onClick = function(e) {
                     // var newItem1 = $('<p>').text('Total: ' + selectedTotalJenis);
                     // ...
 
+                    // for (var i = 0; i < response.length; i++) {
+                    // var newItem = $('<p>').text('Jenis: ' + response[i]);
+                    // modalContent.append(newItem);
+                    // }
+                    // console.log(response[i]);
+                    var list = $('<ul>');
+
+                    // Add each jenis to the list as a list item
+                    // for (var i = 0; i < response.length; i++) {
+                    // var jenis = response[i];
+                    // var total_jenis = response[i];
+                    // var listItem = $('<li>').text('Jenis: ' + jenis);
+                    // // var listItem1 = $('<li>').text('Total_Jenis: ' + total_jenis);
+                    // list.append(listItem);
+                    // // list.append(listItem1);
+                    // }
+
                     for (var i = 0; i < response.length; i++) {
-                    var newItem = $('<p>').text('Jenis: ' + response[i]);
-                    modalContent.append(newItem);
-                }
-                console.log(response[i]);
+                        var jenis = response[i].jenis;
+                        var total = response[i].total;
+                        var listItem = $('<li>').text('Jenis: ' + jenis + ', Total: ' + total);
+                        list.append(listItem);
+                        console.log(listItem);
+
+                    }
+
+                    // Append the list to the modal content
+                    modalContent.append(list);
 
                 //     modalContent.append(newItem);
                 //     // modalContent.append(newItem1);

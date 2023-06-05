@@ -162,8 +162,9 @@ class AdminController extends Controller
                                 ->groupby('jenis')
                                 ->whereBetween('input_date', [$date[0], $date[1]])
                                 ->orderBy('total', 'desc')
-                                // ->limit(4)
-                                ->pluck('jenis')
+                                ->limit(4)
+                                // ->pluck('jenis')
+                                ->get()
                                 ->toArray();
         //  print_r($date);
 
